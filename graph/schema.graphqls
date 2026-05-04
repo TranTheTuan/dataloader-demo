@@ -1,0 +1,88 @@
+# GraphQL schema - mirrors the DPC program management schema structure
+
+scalar Time
+
+directive @auth on FIELD_DEFINITION
+
+# ─── Redemption Types ───────────────────────────────────────────────
+
+type RedemptionInfo {
+    id: Int
+    redemption_id: String
+    redemption_order_id: String
+    purchase_cycle: Int
+    patient_name: String
+    patient_id: String
+    enrolment_id: String
+    redemption_status: String
+    redemption_order_status: String
+    redemption_request_status: String
+    created_at: String
+    program_id: String
+    program_name: String
+    display_id: String
+    redemption_received_date: String
+    redemption_order_hci_name: String
+    redemption_order_hci_id: Int
+    # Nested types - these will use DataLoader for batched fetching
+    redemption_drugs: [RedemptionDrugDetail]
+    acknowledge_documents: [AcknowledgeDocumentDetail]
+    redemption_batch_no: String
+}
+
+type RedemptionDrugDetail {
+    redemption_id: String!
+    drug_id: Int
+    drug_name: String
+    drug_dosage: String
+    drug_unit: String
+    drug_sku_code_id: Int
+    sku_name: String
+    sku_description: String
+    redemption_quantity: Int
+}
+
+type AcknowledgeDocumentDetail {
+    id: Int
+    file_name: String!
+    file_url: String!
+    remarks: String
+    created_by: String
+    created_at: String
+    redemption_id: String!
+}
+
+# ─── Pagination ─────────────────────────────────────────────────────
+
+input PaginatedRedemptionListInput {
+    order: String
+    limit: Int
+    offset: Int
+    program_id: String
+}
+
+type PaginatedRedemptionListResponse {
+    count: Int!
+    items: [RedemptionInfo]
+}
+
+# ─── Redemption Detail ──────────────────────────────────────────────
+
+type RedemptionDetailsResponse {
+    redemption_id: String
+    redemption_order_id: String
+    patient_name: String
+    program_name: String
+    redemption_status: String
+    # Also uses DataLoader for nested types
+    redemption_drugs: [RedemptionDrugDetail]
+    acknowledge_documents: [AcknowledgeDocumentDetail]
+}
+
+# ─── Root Types ─────────────────────────────────────────────────────
+
+type Query {
+    getPaginatedRedemptionList(input: PaginatedRedemptionListInput!): PaginatedRedemptionListResponse!
+    getRedemptionDetails(redemptionId: String!): RedemptionDetailsResponse
+    health: String!
+}

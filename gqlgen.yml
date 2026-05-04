@@ -1,0 +1,46 @@
+schema:
+  - graph/*.graphqls
+
+exec:
+  filename: graph/generated.go
+  package: graph
+
+model:
+  filename: graph/model/models_gen.go
+  package: model
+
+resolver:
+  layout: follow-schema
+  dir: graph
+  package: graph
+
+autobind:
+
+models:
+  ID:
+    model:
+      - github.com/99designs/gqlgen/graphql.ID
+      - github.com/99designs/gqlgen/graphql.Int
+      - github.com/99designs/gqlgen/graphql.Int64
+      - github.com/99designs/gqlgen/graphql.Int32
+  Int:
+    model:
+      - github.com/99designs/gqlgen/graphql.Int
+      - github.com/99designs/gqlgen/graphql.Int64
+      - github.com/99designs/gqlgen/graphql.Int32
+  # Tell gqlgen to generate FIELD RESOLVERS for these nested fields.
+  # Instead of returning the data directly from the parent resolver,
+  # gqlgen will call a separate resolver method for each field.
+  # This is where the DataLoader is invoked.
+  RedemptionInfo:
+    fields:
+      redemption_drugs:
+        resolver: true
+      acknowledge_documents:
+        resolver: true
+  RedemptionDetailsResponse:
+    fields:
+      redemption_drugs:
+        resolver: true
+      acknowledge_documents:
+        resolver: true
