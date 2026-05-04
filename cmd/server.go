@@ -10,10 +10,10 @@ import (
 	"github.com/go-chi/chi"
 	"github.com/rs/cors"
 
-	"github.com/example/dpc-dataloader-demo/graph"
-	"github.com/example/dpc-dataloader-demo/internal/core/service"
-	"github.com/example/dpc-dataloader-demo/internal/dataloader"
-	"github.com/example/dpc-dataloader-demo/internal/repositories"
+	"github.com/TranTheTuan/dataloader-demo/graph"
+	"github.com/TranTheTuan/dataloader-demo/internal/core/service"
+	"github.com/TranTheTuan/dataloader-demo/internal/dataloader"
+	"github.com/TranTheTuan/dataloader-demo/internal/repositories"
 )
 
 func main() {

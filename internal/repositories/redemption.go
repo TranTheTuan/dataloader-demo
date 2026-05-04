@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/example/dpc-dataloader-demo/graph/model"
-	"github.com/example/dpc-dataloader-demo/internal/core/ports"
+	"github.com/TranTheTuan/dataloader-demo/graph/model"
+	"github.com/TranTheTuan/dataloader-demo/internal/core/ports"
 )
 
 // Compile-time check that RedemptionPortImpl implements RedemptionRepository.
@@ -43,15 +43,15 @@ func (r *RedemptionPortImpl) GetPaginatedRedemptionList(ctx context.Context, ord
 		cycle := i + 1
 
 		items = append(items, &model.RedemptionInfo{
-			ID:                  intPtr(i + 1),
-			RedemptionID:        &rid,
-			PatientID:           &pid,
-			EnrolmentID:         &eid,
-			PatientName:         &pname,
-			ProgramID:           &progID,
-			ProgramName:         &progName,
-			RedemptionStatus:    &status,
-			PurchaseCycle:       &cycle,
+			ID:               intPtr(i + 1),
+			RedemptionID:     &rid,
+			PatientID:        &pid,
+			EnrolmentID:      &eid,
+			PatientName:      &pname,
+			ProgramID:        &progID,
+			ProgramName:      &progName,
+			RedemptionStatus: &status,
+			PurchaseCycle:    &cycle,
 			// NOTE: RedemptionDrugs and AcknowledgeDocuments are LEFT NIL.
 			// They will be resolved by the DataLoader field resolvers.
 		})

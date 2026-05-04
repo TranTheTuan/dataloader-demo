@@ -1,4 +1,4 @@
-module github.com/example/dpc-dataloader-demo
+module github.com/TranTheTuan/dataloader-demo
 
 go 1.22.0
 

@@ -1,7 +1,7 @@
 package graph
 
 import (
-	"github.com/example/dpc-dataloader-demo/internal/core/service"
+	"github.com/TranTheTuan/dataloader-demo/internal/core/service"
 )
 
 // This file will not be regenerated automatically.

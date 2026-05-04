@@ -8,8 +8,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/example/dpc-dataloader-demo/graph/model"
-	"github.com/example/dpc-dataloader-demo/internal/dataloader"
+	"github.com/TranTheTuan/dataloader-demo/graph/model"
+	"github.com/TranTheTuan/dataloader-demo/internal/dataloader"
 )
 
 // ─── Query Resolvers ───────────────────────────────────────────────

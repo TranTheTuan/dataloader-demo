@@ -4,8 +4,8 @@ import (
 	"context"
 	"log"
 
-	"github.com/example/dpc-dataloader-demo/graph/model"
-	"github.com/example/dpc-dataloader-demo/internal/core/ports"
+	"github.com/TranTheTuan/dataloader-demo/graph/model"
+	"github.com/TranTheTuan/dataloader-demo/internal/core/ports"
 )
 
 // RedemptionSvc defines the service interface.

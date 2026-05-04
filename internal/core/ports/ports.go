@@ -3,7 +3,7 @@ package ports
 import (
 	"context"
 
-	"github.com/example/dpc-dataloader-demo/graph/model"
+	"github.com/TranTheTuan/dataloader-demo/graph/model"
 )
 
 // RedemptionRepository defines the data access interface for redemptions.

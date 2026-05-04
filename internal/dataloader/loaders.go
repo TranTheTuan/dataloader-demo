@@ -7,16 +7,16 @@ import (
 
 	"github.com/vikstrous/dataloadgen"
 
-	"github.com/example/dpc-dataloader-demo/graph/model"
-	"github.com/example/dpc-dataloader-demo/internal/core/ports"
+	"github.com/TranTheTuan/dataloader-demo/graph/model"
+	"github.com/TranTheTuan/dataloader-demo/internal/core/ports"
 )
 
 // Loaders holds all DataLoader instances for a single request.
 //
 // DataLoaders MUST be request-scoped because:
-//   1. Their internal cache is only valid for the lifetime of a single request.
-//   2. Different requests may have different auth contexts / data visibility.
-//   3. Stale cache across requests would cause data inconsistency.
+//  1. Their internal cache is only valid for the lifetime of a single request.
+//  2. Different requests may have different auth contexts / data visibility.
+//  3. Stale cache across requests would cause data inconsistency.
 //
 // Each Loader batches calls that happen within a short time window (WithWait)
 // and deduplicates keys, then calls the batch function ONCE with all collected keys.
